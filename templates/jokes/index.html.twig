@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block title %}Index - JokesWebApp{% endblock %}
+{% block body %}
+<div class="container body-content">
+    <h2>Index</h2>
+    <p>
+        <a class="btn btn-dark" href="/Jokes/Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    JokeQuestion
+                </th>
+                <th>
+                    JokeAnswer
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+		{% for joke in jokesArray %}
+            <tr>
+                	<td>{{ joke.JokeQuestion }}</td>
+                <td>
+                    <a class="text-primary" href="/Jokes/Edit/{{ joke.id }}">Edit</a> |
+                    <a class="text-primary" href="/Jokes/Details/{{ joke.id }}">Details</a> |
+                    <a class="text-primary" href="/Jokes/Delete/{{ joke.id }}">Delete</a>
+                </td>
+            </tr>
+		{% endfor %}
+
+        </tbody>
+    </table>
+    <hr>
+    <footer>
+        <p>© 2021 - JokesWebApp</p>
+    </footer>
+</div>
+{% endblock %}
